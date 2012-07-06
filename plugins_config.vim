@@ -7,6 +7,7 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 插件设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect() "使用pathogen.vim管理插件
 if g:ostype=='unix'
     call pathogen#infect('linux') "使用pathogen.vim管理插件
