@@ -1,0 +1,13 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\*\Shell\edit with vim]
+@="在Vim中编辑"
+
+[HKEY_CLASSES_ROOT\*\Shell\edit with vim\command]
+@="\"D:\\PortableApps\\Vim\\vim73\\gvim.exe\" \"%1\"" 
+
+[HKEY_CLASSES_ROOT\*\Shell\vim tabnew]
+@="在Vim新标签页中编辑"
+
+[HKEY_CLASSES_ROOT\*\Shell\vim tabnew\command]
+@="\"D:\\PortableApps\\Vim\\vim73\\gvim.exe\" -p --remote-tab-silent \"%1\" \"%*\"" 
