@@ -7,8 +7,12 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 插件设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => pathogen plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect() "使用pathogen.vim管理插件
+call pathogen#infect() "添加bundle/下的子目录为runtimepath
+call pathogen#infect('doc') "添加doc/下的子目录为runtimepath
 if g:ostype=='unix'
     call pathogen#infect('linux') "使用pathogen.vim管理插件
 endif
@@ -226,15 +230,15 @@ nmap <Leader>N <Plug>MarkAllClear
 let g:vimwiki_use_mouse = 1
 
 " 多个维基项目的配置
-let g:vimwiki_list = [{'path': 'E:/VimWiki/public/',
-	    \ 'path_html': 'E:/VimWiki/public/html/',
-	    \ 'html_header': 'E:/VimWiki/template/header.htm',
-	    \ 'html_footer': 'E:/VimWiki/template/footer.htm',
+let g:vimwiki_list = [{'path': '~/VimWiki/public/',
+            \ 'path_html': '~/VimWiki/public/html/',
+	    \ 'html_header': '~/VimWiki/public/template/header.htm',
+	    \ 'html_footer': '~/VimWiki/public/template/footer.htm',
 	    \ 'nested_syntaxes': {'Asm': 'asm', 'C': 'c', 'C++': 'cpp',
-        \ 'Perl': 'perl', 'Python': 'python', 'Java': 'java',
-        \ 'PHP': 'php', 'HTML': 'html', 'Bash': 'sh', 'Vim': 'vim', 'Make': 'make'},
+            \ 'Perl': 'perl', 'Python': 'python', 'Java': 'java',
+            \ 'PHP': 'php', 'HTML': 'html', 'Bash': 'sh', 'Vim': 'vim', 'Make': 'make'},
 	    \ 'auto_export': 0,},
-	    \{'path': 'E:/VimWiki/private/',
+	    \{'path': '~/VimWiki/private/',
 	    \ 'diary_link_count': 5},]
 
 " 对中文用户来说，我们并不怎么需要驼峰英文成为维基词条
