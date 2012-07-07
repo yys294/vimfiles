@@ -31,3 +31,6 @@
 [submodule "doc/taglist"]
 	path = doc/taglist
 	url = https://github.com/vimcn/taglist.vim.git
+[submodule "bundle/vim-repeat"]
+	path = bundle/vim-repeat
+	url = git://github.com/tpope/vim-repeat.git
