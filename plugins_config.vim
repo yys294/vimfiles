@@ -5,16 +5,16 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ²å¼şÉèÖÃ
+" æ’ä»¶è®¾ç½®
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => pathogen plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect() "Ìí¼Óbundle/ÏÂµÄ×ÓÄ¿Â¼Îªruntimepath
-call pathogen#infect('doc') "Ìí¼Ódoc/ÏÂµÄ×ÓÄ¿Â¼Îªruntimepath
+call pathogen#infect() "æ·»åŠ bundle/ä¸‹çš„å­ç›®å½•ä¸ºruntimepath
+call pathogen#infect('doc') "æ·»åŠ doc/ä¸‹çš„å­ç›®å½•ä¸ºruntimepath
 if g:ostype=='unix'
-    call pathogen#infect('linux') "Ê¹ÓÃpathogen.vim¹ÜÀí²å¼ş
+    call pathogen#infect('linux') "ä½¿ç”¨pathogen.vimç®¡ç†æ’ä»¶
 endif
 
 
@@ -29,7 +29,7 @@ endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" minibufexpl²å¼şÉèÖÃ
+" minibufexplæ’ä»¶è®¾ç½®
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:miniBufExplSplitBelow=0
 "let g:miniBufExplSplitToEdge = 1
@@ -49,7 +49,7 @@ endif
 "nnoremap <leader>bp :MBEbp<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" buftabsÉèÖÃ
+" buftabsè®¾ç½®
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 noremap <leader>bp :bprev!<CR>
 noremap <leader>bn :bnext!<CR>
@@ -85,13 +85,28 @@ let g:buftabs_marker_modified = "*"
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" NERD_tree ÉèÖÃ
+" NERD_tree è®¾ç½®
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "nmap <leader>ne :NERDTree<cr>
 nmap <leader>nt :NERDTreeToggle<cr>
 nmap <leader>nb :NERDTreeFromBookmark 
 nmap <leader>nf :NERDTreeFind<cr>
+" Open a NERDTree automatically when vim starts up if no files were specified
+autocmd vimenter * if !argc() | NERDTree | endif
+" Open a NERDTree automatically when vim starts up
+"autocmd vimenter * NERDTree
+" Close vim if the only window left open is a NERDTree
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => CtrlP plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ctrlp_custom_ignore = {
+            \ 'dir':  '\.git$\|\.hg$\|\.svn$',
+            \ 'file': '\.exe$\|\.so$\|\.dll$',
+            \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+            \ }
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " taglist setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -100,9 +115,9 @@ let Tlist_Show_One_File = 1
 let Tlist_Exit_OnlyWindow = 1
 let Tlist_Use_Right_Window = 1
 let Tlist_GainFocus_On_ToggleOpen = 1
-"ÈÃµ±Ç°²»±»±à¼­µÄÎÄ¼şµÄ·½·¨ÁĞ±í×Ô¶¯ÕÛµşÆğÀ´
+"è®©å½“å‰ä¸è¢«ç¼–è¾‘çš„æ–‡ä»¶çš„æ–¹æ³•åˆ—è¡¨è‡ªåŠ¨æŠ˜å èµ·æ¥
 let Tlist_File_Fold_Auto_Close=1
-"Æô¶¯vim×Ô¶¯´ò¿ªtaglist
+"å¯åŠ¨vimè‡ªåŠ¨æ‰“å¼€taglist
 "let Tlist_Auto_Open=1
 nmap <silent> <leader>tl :TlistToggle<cr>
 
@@ -160,36 +175,36 @@ else
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" pydictionÉèÖÃ
+" pydictionè®¾ç½®
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:pydiction_location = '$VIM\vimfiles\bundle\pydiction-1.2\complete-dict'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" omnicppcomplete ÉèÖÃ
+" omnicppcomplete è®¾ç½®
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ÉèÖÃVimIM-Vim ÖĞÎÄÊäÈë·¨
+"è®¾ç½®VimIM-Vim ä¸­æ–‡è¾“å…¥æ³•
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:vimim_onekey_hit_and_run=0
 
 
-"ÉèÖÃa51 ÎÄ¼şÓï·¨¸ßÁÁ
+"è®¾ç½®a51 æ–‡ä»¶è¯­æ³•é«˜äº®
 autocmd BufEnter,WinEnter,BufNewFile,BufRead *.a51 setlocal filetype=a51
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ÉèÖÃTxtBrowser ²å¼ş
+"è®¾ç½®TxtBrowser æ’ä»¶
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd BufEnter,WinEnter,BufNewFile,BufRead *.txt setlocal ft=txt
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ÉèÖÃColorV²å¼ş
+"è®¾ç½®ColorVæ’ä»¶
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Auto Preview color-text in *.css files.  Auto update view after write file.
 "let g:ColorV_prev_css=1
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ÉèÖÃgrep²å¼ş
+"è®¾ç½®grepæ’ä»¶
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set grepprg=grep\ -nH
 let Grep_Default_Options = '-i'
@@ -198,7 +213,7 @@ let Grep_OpenQuickfixWindow = 1
 nnoremap <silent> <C-F3> :Grep<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ÉèÖÃauthorinfo²å¼ş
+"è®¾ç½®authorinfoæ’ä»¶
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vimrc_author='YYS'
 let g:vimrc_email='yysfire@126.com'
@@ -206,30 +221,30 @@ let g:vimrc_homepage='http://blog.163.com/yysfire@126'
 nmap <F4> :AuthorInfoDetect<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ÉèÖÃsupertab²å¼ş
+"è®¾ç½®supertabæ’ä»¶
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:SuperTabDefaultCompletionType = "context"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ÉèÖÃxptemplate²å¼ş
+"è®¾ç½®xptemplateæ’ä»¶
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:xptemplate_nav_next = '<C-j>'
 "let g:xptemplate_nav_prev = '<C-k>'
 "let g:xptemplate_key = '<C-=>'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ÉèÖÃmark²å¼ş
+"è®¾ç½®markæ’ä»¶
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:mwDefaultHighlightingPalette = 'extended'
 nmap <Leader>M <Plug>MarkToggle
 nmap <Leader>N <Plug>MarkAllClear
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ÉèÖÃvimwiki²å¼ş
+"è®¾ç½®vimwikiæ’ä»¶
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vimwiki_use_mouse = 1
 
-" ¶à¸öÎ¬»ùÏîÄ¿µÄÅäÖÃ
+" å¤šä¸ªç»´åŸºé¡¹ç›®çš„é…ç½®
 let g:vimwiki_list = [{'path': '~/VimWiki/public/',
             \ 'path_html': '~/VimWiki/public/html/',
 	    \ 'html_header': '~/VimWiki/public/template/header.htm',
@@ -241,27 +256,27 @@ let g:vimwiki_list = [{'path': '~/VimWiki/public/',
 	    \{'path': '~/VimWiki/private/',
 	    \ 'diary_link_count': 5},]
 
-" ¶ÔÖĞÎÄÓÃ»§À´Ëµ£¬ÎÒÃÇ²¢²»ÔõÃ´ĞèÒªÍÕ·åÓ¢ÎÄ³ÉÎªÎ¬»ù´ÊÌõ
+" å¯¹ä¸­æ–‡ç”¨æˆ·æ¥è¯´ï¼Œæˆ‘ä»¬å¹¶ä¸æ€ä¹ˆéœ€è¦é©¼å³°è‹±æ–‡æˆä¸ºç»´åŸºè¯æ¡
 let g:vimwiki_camel_case = 0
 
-" ±ê¼ÇÎªÍê³ÉµÄ checklist ÏîÄ¿»áÓĞÌØ±ğµÄÑÕÉ«
+" æ ‡è®°ä¸ºå®Œæˆçš„ checklist é¡¹ç›®ä¼šæœ‰ç‰¹åˆ«çš„é¢œè‰²
 let g:vimwiki_hl_cb_checked = 1
 
-" ÎÒµÄ vim ÊÇÃ»ÓĞ²Ëµ¥µÄ£¬¼ÓÒ»¸ö vimwiki ²Ëµ¥ÏîÒ²Ã»ÓĞÒâÒå
+" æˆ‘çš„ vim æ˜¯æ²¡æœ‰èœå•çš„ï¼ŒåŠ ä¸€ä¸ª vimwiki èœå•é¡¹ä¹Ÿæ²¡æœ‰æ„ä¹‰
 let g:vimwiki_menu = ''
 
-" ÊÇ·ñ¿ªÆô°´Óï·¨ÕÛµş  »áÈÃÎÄ¼ş±È½ÏÂı
+" æ˜¯å¦å¼€å¯æŒ‰è¯­æ³•æŠ˜å   ä¼šè®©æ–‡ä»¶æ¯”è¾ƒæ…¢
 "let g:vimwiki_folding = 1
 
-" ÊÇ·ñÔÚ¼ÆËã×Ö´®³¤¶ÈÊ±ÓÃÌØ±ğ¿¼ÂÇÖĞÎÄ×Ö·û
+" æ˜¯å¦åœ¨è®¡ç®—å­—ä¸²é•¿åº¦æ—¶ç”¨ç‰¹åˆ«è€ƒè™‘ä¸­æ–‡å­—ç¬¦
 let g:vimwiki_CJK_length = 1
 
-" ÉùÃ÷¿ÉÒÔÔÚwikiÀïÃæÊ¹ÓÃµÄHTML±êÇ©
+" å£°æ˜å¯ä»¥åœ¨wikié‡Œé¢ä½¿ç”¨çš„HTMLæ ‡ç­¾
 let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,br,hr,div,del,code,red,center,left,right,h4,h5,h6'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"ÉèÖÃfcitx²å¼ş
+"è®¾ç½®fcitxæ’ä»¶
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if g:ostype=='unix'
     set ttimeoutlen=100
