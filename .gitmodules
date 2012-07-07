@@ -25,3 +25,6 @@
 [submodule "doc/nerdtree"]
 	path = doc/nerdtree
 	url = https://github.com/vimcn/NERD_tree.vim.git
+[submodule "doc/snipmate"]
+	path = doc/snipmate
+	url = https://github.com/vimcn/snipMate.vim.git
