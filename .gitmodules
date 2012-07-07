@@ -28,3 +28,6 @@
 [submodule "doc/snipmate"]
 	path = doc/snipmate
 	url = https://github.com/vimcn/snipMate.vim.git
+[submodule "doc/taglist"]
+	path = doc/taglist
+	url = https://github.com/vimcn/taglist.vim.git
