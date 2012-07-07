@@ -22,3 +22,6 @@
 [submodule "doc/nerdcommenter"]
 	path = doc/nerdcommenter
 	url = https://github.com/vimcn/NERD_commenter.git
+[submodule "doc/nerdtree"]
+	path = doc/nerdtree
+	url = https://github.com/vimcn/NERD_tree.vim.git
