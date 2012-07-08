@@ -151,12 +151,12 @@ let g:SrcExpl_isUpdateTags = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " statusline setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd! ColorScheme *  source $VIMFILES\bundle\statusline\plugin\statusline.vim
+autocmd! ColorScheme *  source $VIMFILES/bundle/statusline/plugin/statusline.vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " pydiction设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:pydiction_location = '$VIMFILES\bundle\pydiction-1.2\complete-dict'
+let g:pydiction_location = '$VIMFILES/bundle/pydiction-1.2/complete-dict'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " omnicppcomplete 设置
@@ -208,9 +208,9 @@ nmap <Leader>N <Plug>MarkAllClear
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "设置vimwiki插件
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-au filetype vimwiki map <F5> :VimWiki2HTML<cr>
-au filetype vimwiki map <C-F5> :VimWiki2HTMLBrowse<cr>
-au filetype vimwiki map <F6> :VimWikiAll2HTML<cr>
+au filetype vimwiki map <F5> :Vimwiki2HTML<cr>
+au filetype vimwiki map <C-F5> :Vimwiki2HTMLBrowse<cr>
+au filetype vimwiki map <F6> :VimwikiAll2HTML<cr>
 
 " 多个维基项目的配置
 let g:vimwiki_list = [{'path': '$VIMHOME/VimWiki/public/',
@@ -260,7 +260,7 @@ let g:vimwiki_user_htmls = '404.html,search.html'
 " 标题编号后跟')'
 "let g:vimwiki_html_header_numbering_sym=' '
 
-let g:vimwiki_browsers=['firefox.exe']
+let g:vimwiki_browsers=['firefox']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "设置fcitx插件
