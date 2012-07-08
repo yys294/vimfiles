@@ -28,21 +28,9 @@
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if(has("win32")||has("win95")||has("win64")||has("win16")||has("dos32")||has("dos16")) "判定当前操作系统类型
-    let g:ostype='windows'
-    let g:system_spliter='\'
-elseif(has("mac"))
-    let g:ostype='mac'
-    let g:system_spliter='/'
-else
-    let g:ostype='unix'
-    let g:system_spliter='/'
-endif
-
 if (g:ostype=='windows')
     source $VIMRUNTIME/mswin.vim
     behave mswin

@@ -57,25 +57,6 @@ noremap <leader>bn :bnext!<CR>
 "   omitting the preceding directory name.
 let g:buftabs_only_basename=1
 
-"   Define this variable to make the plugin show the buftabs in the statusline
-"   instead of the command line. It is a good idea to configure vim to show
-"   the statusline as well when only one window is open.
-"   set laststatus=2
-"let g:buftabs_in_statusline=1
-"   By default buftabs will take up the whole of the left-aligned section of
-"   your statusline. You can alternatively specify precisely where it goes
-"   using %{buftabs#statusline()} e.g.:
-"set statusline=%{buftabs#statusline()}
-"set statusline+=[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]
-"set statusline+=[%{&ff}]%y\ \ Line:%l/%L=%p%%,Column:%c
-"set statusline+=\ \ ASCII=\%b,HEX=\%B
-"
-"   The name of a highlight group (:help highligh-groups) which is used to
-"   show the name of the current active buffer and of all other inactive
-"   buffers. If these variables are not defined, no highlighting is used.
-"   (Highlighting is only functional when g:buftabs_in_statusline is enabled)
-"let g:buftabs_active_highlight_group="Title"
-"
 "   These strings are drawn around each tab as separators, the 'marker_modified'
 "   symbol is used to denote a modified (unsaved) buffer.
 let g:buftabs_separator = "."
@@ -102,6 +83,8 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => CtrlP plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:ctrlp_custom_ignore = {
             \ 'dir':  '\.git$\|\.hg$\|\.svn$',
             \ 'file': '\.exe$\|\.so$\|\.dll$',
@@ -168,26 +151,16 @@ let g:SrcExpl_isUpdateTags = 0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " statusline setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if g:ostype=='windows'
-    autocmd! ColorScheme *  source $VIM\vimfiles\bundle\statusline\plugin\statusline.vim
-else
-    autocmd! ColorScheme *  source ~/.vim/bundle/statusline/plugin/statusline.vim
-endif
+autocmd! ColorScheme *  source $VIMFILES\bundle\statusline\plugin\statusline.vim
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " pydiction设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:pydiction_location = '$VIM\vimfiles\bundle\pydiction-1.2\complete-dict'
+let g:pydiction_location = '$VIMFILES\bundle\pydiction-1.2\complete-dict'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " omnicppcomplete 设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"设置VimIM-Vim 中文输入法
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:vimim_onekey_hit_and_run=0
-
 
 "设置a51 文件语法高亮
 autocmd BufEnter,WinEnter,BufNewFile,BufRead *.a51 setlocal filetype=a51
@@ -216,21 +189,14 @@ nnoremap <silent> <C-F3> :Grep<CR>
 "设置authorinfo插件
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vimrc_author='YYS'
-let g:vimrc_email='yysfire@126.com'
-let g:vimrc_homepage='http://blog.163.com/yysfire@126'
+let g:vimrc_email='yysfire[at]gmail.com'
+let g:vimrc_homepage='http://'
 nmap <F4> :AuthorInfoDetect<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "设置supertab插件
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:SuperTabDefaultCompletionType = "context"
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"设置xptemplate插件
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:xptemplate_nav_next = '<C-j>'
-"let g:xptemplate_nav_prev = '<C-k>'
-"let g:xptemplate_key = '<C-=>'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "设置mark插件
@@ -242,38 +208,55 @@ nmap <Leader>N <Plug>MarkAllClear
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "设置vimwiki插件
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vimwiki_use_mouse = 1
-
 " 多个维基项目的配置
-let g:vimwiki_list = [{'path': '~/VimWiki/public/',
-            \ 'path_html': '~/VimWiki/public/html/',
-	    \ 'html_header': '~/VimWiki/public/template/header.htm',
-	    \ 'html_footer': '~/VimWiki/public/template/footer.htm',
-	    \ 'nested_syntaxes': {'Asm': 'asm', 'C': 'c', 'C++': 'cpp',
-            \ 'Perl': 'perl', 'Python': 'python', 'Java': 'java',
-            \ 'PHP': 'php', 'HTML': 'html', 'Bash': 'sh', 'Vim': 'vim', 'Make': 'make'},
+let g:vimwiki_list = [{'path': '$VIMHOME/VimWiki/public/',
+            \ 'path_html': '$VIMHOME/VimWiki/public/html/',
+            \ 'template_path': '$VIMHOME/VimWiki/public/template/',
+            \ 'template_default': 'default_template',
+            \ 'template_ext': '.html',
+	    \ 'nested_syntaxes': {'asm': 'asm', 'c': 'c', 'c++': 'cpp',
+            \ 'perl': 'perl', 'python': 'python', 'java': 'java',
+            \ 'php': 'php', 'html': 'html', 'bash': 'sh', 'vim': 'vim', 'make': 'make'},
 	    \ 'auto_export': 0,},
-	    \{'path': '~/VimWiki/private/',
+	    \{'path': '$VIMHOME/VimWiki/private/',
 	    \ 'diary_link_count': 5},]
+
+" 文件名中的空格将会替换成 g:vimwiki_stripsym 的值
+" g:vimwiki_stripsym 缺省值为下划线
+let g:vimwiki_badsyms = ' '
+
+" 设置编码
+let g:vimwiki_w32_dir_enc = 'utf-8'
+ 
+" 使用鼠标映射
+let g:vimwiki_use_mouse = 1
 
 " 对中文用户来说，我们并不怎么需要驼峰英文成为维基词条
 let g:vimwiki_camel_case = 0
 
-" 标记为完成的 checklist 项目会有特别的颜色
+" Checked list items can be highlighted with a color
 let g:vimwiki_hl_cb_checked = 1
 
 " 我的 vim 是没有菜单的，加一个 vimwiki 菜单项也没有意义
 let g:vimwiki_menu = ''
 
-" 是否开启按语法折叠  会让文件比较慢
-"let g:vimwiki_folding = 1
-
 " 是否在计算字串长度时用特别考虑中文字符
 let g:vimwiki_CJK_length = 1
 
 " 声明可以在wiki里面使用的HTML标签
-let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,br,hr,div,del,code,red,center,left,right,h4,h5,h6'
+let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,br,hr,div,del,code,red,center,left,right'
 
+let g:vimwiki_file_exts='pdf,txt,doc,rtf,xls,ppt,php,html,zip,rar,7z,gz,bz2,xz'
+
+" 'path_html'路径下的这些文件不会被命令:VimwikiAll2HTML自动删除
+let g:vimwiki_user_htmls = '404.html,search.html'
+
+" 从2级标题开始自动给标题编号
+"let g:vimwiki_html_header_numbering=2
+" 标题编号后跟')'
+"let g:vimwiki_html_header_numbering_sym=' '
+
+let g:vimwiki_browsers=['firefox.exe']
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "设置fcitx插件

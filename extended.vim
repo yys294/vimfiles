@@ -76,17 +76,15 @@ if g:ostype=='unix'
     map <silent> <leader>ss :source ~/.vimrc<cr>
     "Fast editing of .vimrc
     map <silent> <leader>ee :e ~/.vimrc<cr>
-    map <silent> <leader>v :e ~/.vim/my_configs.vim<cr>
     "When .vimrc is edited, reload it
-    autocmd! bufwritepost vimrc source ~/.vimrc
+    autocmd! bufwritepost .vimrc source ~/.vimrc
 elseif g:ostype=='windows'
     "Fast reloading of the _vimrc
     map <silent> <leader>ss :source $VIM/_vimrc<cr>
     "Fast editing of _vimrc
     map <silent> <leader>ee :e $VIM/_vimrc<cr>
-    map <silent> <leader>v :e $VIM/vimfiles/my_configs.vim<cr>
     "When _vimrc is edited, reload it
-    autocmd! bufwritepost vimrc source $VIM/_vimrc
+    autocmd! bufwritepost _vimrc source $VIM/_vimrc
 endif
 
 
