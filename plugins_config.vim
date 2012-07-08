@@ -208,6 +208,10 @@ nmap <Leader>N <Plug>MarkAllClear
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "设置vimwiki插件
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+au filetype vimwiki map <F5> :VimWiki2HTML<cr>
+au filetype vimwiki map <C-F5> :VimWiki2HTMLBrowse<cr>
+au filetype vimwiki map <F6> :VimWikiAll2HTML<cr>
+
 " 多个维基项目的配置
 let g:vimwiki_list = [{'path': '$VIMHOME/VimWiki/public/',
             \ 'path_html': '$VIMHOME/VimWiki/public/html/',
