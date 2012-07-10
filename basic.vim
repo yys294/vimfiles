@@ -92,12 +92,12 @@ set whichwrap+=<,>,[,]
 " Ignore case when searching
 set ignorecase
 " When searching try to be smart about cases 
-" ËÑË÷Ê±ÓĞÉÏ´óĞ´×ÖÄ¸Ê±ÈÔ±£³Ö¶Ô´óĞ¡Ğ´Ãô¸Ğ
+" æœç´¢æ—¶æœ‰ä¸Šå¤§å†™å­—æ¯æ—¶ä»ä¿æŒå¯¹å¤§å°å†™æ•æ„Ÿ
 set smartcase
 " Highlight search results
 set hlsearch
 " Makes search act like search in modern browsers
-"ÔÚÊäÈëÒªËÑË÷µÄÎÄ×ÖÊ±£¬vim»áÊµÊ±Æ¥Åä
+"åœ¨è¾“å…¥è¦æœç´¢çš„æ–‡å­—æ—¶ï¼Œvimä¼šå®æ—¶åŒ¹é…
 set incsearch 
 
 " Don't redraw while executing macros (good performance config)
@@ -107,7 +107,7 @@ set lazyredraw
 set magic
 
 " Show matching brackets when text indicator is over them
-" ²åÈëÀ¨ºÅÊ±£¬¶ÌÔİµØÌø×ªµ½Æ¥ÅäµÄ¶ÔÓ¦À¨ºÅ¡£Ö»ÓĞÔÚÆÁÄ»ÉÏÄÜ¿´µ½Æ¥ÅäÊ±²Å»á½øĞĞÌø×ª
+" æ’å…¥æ‹¬å·æ—¶ï¼ŒçŸ­æš‚åœ°è·³è½¬åˆ°åŒ¹é…çš„å¯¹åº”æ‹¬å·ã€‚åªæœ‰åœ¨å±å¹•ä¸Šèƒ½çœ‹åˆ°åŒ¹é…æ—¶æ‰ä¼šè¿›è¡Œè·³è½¬
 set showmatch 
 " How many tenths of a second to blink when matching brackets
 set mat=2
@@ -134,11 +134,11 @@ endtry
 "set background=dark
 
 if has("gui_running")
-    set guioptions-=t "È¥µô¿ÉËºÏÂµÄ²Ëµ¥Ïî
-    "set guioptions-=m "È¥µô²Ëµ¥À¸
-    set guioptions-=T "È¥µô¹¤¾ßÀ¸
-    set guioptions-=L "ÓĞ´¹Ö±·Ö¸îµÄ´°¿ÚÊ±£¬È¥µô×ó±ßµÄ¹ö¶¯Ìõ
-    set guioptions-=r "È¥µôÓÒ±ßµÄ¹ö¶¯Ìõ
+    set guioptions-=t "å»æ‰å¯æ’•ä¸‹çš„èœå•é¡¹
+    "set guioptions-=m "å»æ‰èœå•æ 
+    set guioptions-=T "å»æ‰å·¥å…·æ 
+    set guioptions-=L "æœ‰å‚ç›´åˆ†å‰²çš„çª—å£æ—¶ï¼Œå»æ‰å·¦è¾¹çš„æ»šåŠ¨æ¡
+    set guioptions-=r "å»æ‰å³è¾¹çš„æ»šåŠ¨æ¡
     if has("windows")
         set guitablabel=%M\ %t
     endif
@@ -158,7 +158,7 @@ endif
 " => Encoding, Fileformats
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set encoding=utf-8
-"chinese ÊÇ¸ö±ğÃû£¬ÔÚ Unix Àï±íÊ¾ gb2312£¬ÔÚ Windows Àï±íÊ¾ cp936
+"chinese æ˜¯ä¸ªåˆ«åï¼Œåœ¨ Unix é‡Œè¡¨ç¤º gb2312ï¼Œåœ¨ Windows é‡Œè¡¨ç¤º cp936
 set fileencodings=ucs-bom,utf-8,chinese
 if (g:ostype=='windows')
     set fenc=chinese
@@ -175,7 +175,7 @@ endif
 " Set helplang
 set helplang=cn
 
-" ½â¾ö²Ëµ¥ÂÒÂë
+" è§£å†³èœå•ä¹±ç 
 if has("gui_running")
     source $VIMRUNTIME/delmenu.vim
     source $VIMRUNTIME/menu.vim
@@ -214,15 +214,15 @@ if !isdirectory($HOME . "/.vim_temp_dir")
     call mkdir($HOME . "/.vim_temp_dir", "p")
 endif
 
-"ÉèÖÃ±¸·İÎÄ¼şµÄÄ¿Â¼
+"è®¾ç½®å¤‡ä»½æ–‡ä»¶çš„ç›®å½•
 set backupdir=$HOME/.vim_temp_dir
-"ÉèÖÃ½»»»ÎÄ¼şµÄÄ¿Â¼
+"è®¾ç½®äº¤æ¢æ–‡ä»¶çš„ç›®å½•
 set directory=$HOME/.vim_temp_dir
-"±¸·İÎÄ¼şµÄºó×ºÓÉÄ¬ÈÏµÄ~¸ÄÎª".bak"
+"å¤‡ä»½æ–‡ä»¶çš„åç¼€ç”±é»˜è®¤çš„~æ”¹ä¸º".bak"
 set backupext=.bak
-"¸ø±¸·İÎÄ¼şÃû¼ÓÉÏÊ±¼ä´Á£¬¾Í¿ÉÊµÏÖ¶à°æ±¾¿ØÖÆ
+"ç»™å¤‡ä»½æ–‡ä»¶ååŠ ä¸Šæ—¶é—´æˆ³ï¼Œå°±å¯å®ç°å¤šç‰ˆæœ¬æ§åˆ¶
 au BufWritePre * let &bex = '-' . strftime("%Y%m%d-%H%M%S") . '.bak'
-"ÔÚµ±Ç°Ä¿Â¼´´½¨Ëù±à¼­ÎÄ¼şµÄÔ­Ê¼±¸·İ
+"åœ¨å½“å‰ç›®å½•åˆ›å»ºæ‰€ç¼–è¾‘æ–‡ä»¶çš„åŸå§‹å¤‡ä»½
 "set patchmode=.orig
 
 
@@ -230,17 +230,17 @@ au BufWritePre * let &bex = '-' . strftime("%Y%m%d-%H%M%S") . '.bak'
 " => Text, tab and indent related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 1 tab == 4 spaces
-set shiftwidth=4 "(×Ô¶¯) Ëõ½øÃ¿Ò»²½Ê¹ÓÃµÄ¿Õ°×ÊıÄ¿¡£ÓÃÓÚ 'cindent'¡¢>>¡¢<< µÈ¡£
+set shiftwidth=4 "(è‡ªåŠ¨) ç¼©è¿›æ¯ä¸€æ­¥ä½¿ç”¨çš„ç©ºç™½æ•°ç›®ã€‚ç”¨äº 'cindent'ã€>>ã€<< ç­‰ã€‚
 set tabstop=8
-set softtabstop=4 "Ö´ĞĞ±à¼­²Ù×÷£¬Èç²åÈë <Tab> »òÕßÊ¹ÓÃ <BS> Ê±£¬°Ñ <Tab> Ëã×÷4¸ö¿Õ¸ñ
+set softtabstop=4 "æ‰§è¡Œç¼–è¾‘æ“ä½œï¼Œå¦‚æ’å…¥ <Tab> æˆ–è€…ä½¿ç”¨ <BS> æ—¶ï¼ŒæŠŠ <Tab> ç®—ä½œ4ä¸ªç©ºæ ¼
 
 " Use spaces instead of tabs
 set expandtab
 
 " Be smart when using tabs 
-" Èç¹û´ò¿ª£¬ĞĞÊ×µÄ <Tab> ¸ù¾İ 'shiftwidth' ²åÈë¿Õ°×¡£'tabstop' »ò
-" 'softtabstop' ÓÃÔÚ±ğµÄµØ·½¡£<BS> É¾³ıĞĞÊ× 'shiftwidth' ÄÇÃ´¶àµÄ¿Õ°×¡£
-" Èç¹û¹Ø±Õ£¬<Tab> ×ÜÊÇ¸ù¾İ 'tabstop' »ò 'softtabstop' ¾ö¶¨²åÈë¿Õ°×µÄÊıÄ¿
+" å¦‚æœæ‰“å¼€ï¼Œè¡Œé¦–çš„ <Tab> æ ¹æ® 'shiftwidth' æ’å…¥ç©ºç™½ã€‚'tabstop' æˆ–
+" 'softtabstop' ç”¨åœ¨åˆ«çš„åœ°æ–¹ã€‚<BS> åˆ é™¤è¡Œé¦– 'shiftwidth' é‚£ä¹ˆå¤šçš„ç©ºç™½ã€‚
+" å¦‚æœå…³é—­ï¼Œ<Tab> æ€»æ˜¯æ ¹æ® 'tabstop' æˆ– 'softtabstop' å†³å®šæ’å…¥ç©ºç™½çš„æ•°ç›®
 set smarttab
 
 
@@ -248,7 +248,7 @@ set smarttab
 "if has("linebreak")
     "set lbr
 "endif
-set tw=78
+"set tw=78
 set formatoptions+=mM
 au filetype txt,text setlocal formatoptions=aw2tqmM
 
@@ -256,14 +256,14 @@ set autoindent
 "set smartindent
 set cindent
 
-"½«C++×÷ÓÃÓòÉùÃ÷ÖÃÓÚÆäËùÔÚ´úÂë¿éµÄ0¸ö×Ö·ûºó¡£(È±Ê¡Îª'shiftwidth')¡£×÷ÓÃÓòÉùÃ÷
-"¿ÉÒÔÊÇ"public:","protected:"»òÕß"private:"
+"å°†C++ä½œç”¨åŸŸå£°æ˜ç½®äºå…¶æ‰€åœ¨ä»£ç å—çš„0ä¸ªå­—ç¬¦åã€‚(ç¼ºçœä¸º'shiftwidth')ã€‚ä½œç”¨åŸŸå£°æ˜
+"å¯ä»¥æ˜¯"public:","protected:"æˆ–è€…"private:"
 set cinoptions=g0,t0,(0,u0,w1,m1
 
-"±ê×¼µÄ GNU ±àÂë·ç¸ñµÄÉèÖÃ
+"æ ‡å‡†çš„ GNU ç¼–ç é£æ ¼çš„è®¾ç½®
 "set cinoptions=>4,n-2,{2,^-2,:2,=2,g0,h2,p5,t0,+2,(0,u0,w1,m1 shiftwidth=2 tabstop=8
 
-"Ä¬ÈÏÖµ
+"é»˜è®¤å€¼
 "set cinoptions=>s,e0,n0,f0,{0,}0,^0,:s,=s,l0,b0,g0,hs,ps,t0,is,+s,c3,C0,/0,(2s,us,U0,w0,W0,m0,M0,j0,)20,*30,#0
 
 
@@ -274,7 +274,7 @@ set cinoptions=g0,t0,(0,u0,w1,m1
 " Super useful! From an idea by Michael Naumann
 vnoremap <silent> * :call VisualSelection('f')<CR>
 vnoremap <silent> # :call VisualSelection('b')<CR>
-""Ñ¡ÖĞÒ»¶ÎÎÄ×Ö²¢È«ÎÄËÑË÷Õâ¶ÎÎÄ×Ö
+""é€‰ä¸­ä¸€æ®µæ–‡å­—å¹¶å…¨æ–‡æœç´¢è¿™æ®µæ–‡å­—
 "vnoremap  *  y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 "vnoremap  #  y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
@@ -309,9 +309,9 @@ map <leader>ba :1,1000 bd<cr>
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
 map <leader>tc :tabclose<cr>
-" ¹Ø±ÕÆäËûËùÓĞ±êÇ©
+" å…³é—­å…¶ä»–æ‰€æœ‰æ ‡ç­¾
 map <leader>to :tabonly<cr>
-" ÒÆ¶¯±êÇ©
+" ç§»åŠ¨æ ‡ç­¾
 map <leader>tm :tabmove 
 
 " Opens a new tab with the current buffer's path
@@ -320,8 +320,8 @@ map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 " Switch CWD to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>:pwd<cr>
-"×Ô¶¯ÉèÖÃVimµÄ¹¤×÷Â·¾¶Îªµ±Ç°ÎÄ¼şËùÔÚµÄÎÄ¼ş¼Ğ
-autocmd BufEnter * lcd %:p:h
+"è‡ªåŠ¨è®¾ç½®Vimçš„å·¥ä½œè·¯å¾„ä¸ºå½“å‰æ–‡ä»¶æ‰€åœ¨çš„æ–‡ä»¶å¤¹
+"autocmd BufEnter * lcd %:p:h
 
 " Specify the behavior when switching between buffers 
 try
@@ -387,7 +387,7 @@ endfunction
 autocmd BufWrite *.py :call RemoveTrailingWhitespace()
 nmap <leader>rmw :call RemoveTrailingWhitespace()<cr>
 
-" ÓĞÌõ¼şµØ×Ô¶¯´´½¨²»´æÔÚµÄÄ¿Â¼
+" æœ‰æ¡ä»¶åœ°è‡ªåŠ¨åˆ›å»ºä¸å­˜åœ¨çš„ç›®å½•
 augroup AutoMkdir
     autocmd!
     autocmd  BufNewFile  *  :call EnsureDirExists()
@@ -422,12 +422,12 @@ vnoremap <silent> <leader>rs :call VisualSelection('replace')<CR>
 "
 "map <leader>cp :botright cope<cr>
 
-" ²»ÓÃ<leader>cn,±ÜÃâºÍnerdcomment²å¼şµÄÏà³åÍ» 
+" ä¸ç”¨<leader>cn,é¿å…å’Œnerdcommentæ’ä»¶çš„ç›¸å†²çª 
 map <leader>cx :cn<cr>
 
 map <leader>cp :cp<cr>
 
-" ½«quickfix´°¿ÚµÄĞÅÏ¢¸´ÖÆÕ³Ìùµ½ĞÂ±êÇ©Àï
+" å°†quickfixçª—å£çš„ä¿¡æ¯å¤åˆ¶ç²˜è´´åˆ°æ–°æ ‡ç­¾é‡Œ
 map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
 
 
@@ -438,14 +438,14 @@ map <leader>co ggVGy:tabnew<cr>:set syntax=qf<cr>pgg
 map <leader>sl :setlocal spell!<cr>
 
 " Shortcuts using <leader>
-" ÒÆµ½ÏÂÒ»¸öÆ´Ğ´´íÎóµÄµ¥´Ê
+" ç§»åˆ°ä¸‹ä¸€ä¸ªæ‹¼å†™é”™è¯¯çš„å•è¯
 map <leader>sn ]s
 map <leader>sp [s
-" ¸æËßÆ´Ğ´¼ì²éÆ÷¸Ãµ¥´ÊÊÇÆ´Ğ´ÕıÈ·µÄ
+" å‘Šè¯‰æ‹¼å†™æ£€æŸ¥å™¨è¯¥å•è¯æ˜¯æ‹¼å†™æ­£ç¡®çš„
 map <leader>si zg
-" ¸æËßÆ´Ğ´¼ì²éÆ÷¸Ãµ¥´ÊÊÇÆ´Ğ´´íÎóµÄ
+" å‘Šè¯‰æ‹¼å†™æ£€æŸ¥å™¨è¯¥å•è¯æ˜¯æ‹¼å†™é”™è¯¯çš„
 map <leader>sw zw
-" ÏÔÊ¾Ò»¸öÓĞ¹ØÆ´Ğ´´íÎóµ¥´ÊµÄÁĞ±í£¬¿É´ÓÖĞÑ¡Ôñ
+" æ˜¾ç¤ºä¸€ä¸ªæœ‰å…³æ‹¼å†™é”™è¯¯å•è¯çš„åˆ—è¡¨ï¼Œå¯ä»ä¸­é€‰æ‹©
 map <leader>s? z=
 
 
@@ -465,19 +465,19 @@ map <leader>pp :setlocal paste!<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => :TOhtml related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"²»Ê¹ÓÃcss
+"ä¸ä½¿ç”¨css
 let g:html_use_css = 0
-"ÖĞÎÄÖ§³Ö
+"ä¸­æ–‡æ”¯æŒ
 let g:html_use_encoding = "gb2312"
-"Ç¿ÖÆÈ¥µôĞĞºÅ
+"å¼ºåˆ¶å»æ‰è¡Œå·
 let g:html_number_lines = 0
-"Ç¿ÖÆ±àĞĞºÅ£¨¸ù¾İÒª×ª»»µÄÄÚÈİÖØĞÂ±àºÅ£©
+"å¼ºåˆ¶ç¼–è¡Œå·ï¼ˆæ ¹æ®è¦è½¬æ¢çš„å†…å®¹é‡æ–°ç¼–å·ï¼‰
 "let g:html_number_lines = 1
-"²ÉÓÃÄ¬ÈÏnumber Ñ¡ÏîÉèÖÃ
+"é‡‡ç”¨é»˜è®¤number é€‰é¡¹è®¾ç½®
 "unlet g:html_number_lines
-"ºöÂÔ´úÂëÕÛµş
+"å¿½ç•¥ä»£ç æŠ˜å 
 let g:html_ignore_folding = 1
-"²»Ê¹ÓÃxhtml
+"ä¸ä½¿ç”¨xhtml
 let g:use_xhtml = 0
 
 

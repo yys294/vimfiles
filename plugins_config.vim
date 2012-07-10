@@ -156,7 +156,7 @@ autocmd! ColorScheme *  source $VIMFILES/bundle/statusline/plugin/statusline.vim
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " pydiction设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:pydiction_location = '$VIMFILES/bundle/pydiction-1.2/complete-dict'
+"let g:pydiction_location = '$VIMFILES/bundle/pydiction-1.2/complete-dict'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " omnicppcomplete 设置
@@ -211,23 +211,23 @@ nmap <Leader>N <Plug>MarkAllClear
 au filetype vimwiki map <F5> :Vimwiki2HTML<cr>
 au filetype vimwiki map <C-F5> :Vimwiki2HTMLBrowse<cr>
 au filetype vimwiki map <F6> :VimwikiAll2HTML<cr>
+au BufNewFile *.wiki 0r $VIMFILES/templates/template.wiki
+au filetype vimwiki setl tw=0
 
 " 多个维基项目的配置
-let g:vimwiki_list = [{'path': '$VIMHOME/VimWiki/public/',
+let g:vimwiki_list = [{'path': '$VIMHOME/VimWiki/public/wiki/',
             \ 'path_html': '$VIMHOME/VimWiki/public/html/',
             \ 'template_path': '$VIMHOME/VimWiki/public/template/',
             \ 'template_default': 'default_template',
             \ 'template_ext': '.html',
-	    \ 'nested_syntaxes': {'asm': 'asm', 'c': 'c', 'c++': 'cpp',
+	    \ 'nested_syntaxes': {'asm': 'asm', 'c': 'c', 'cpp': 'cpp',
+            \ 'css': 'css', 'js': 'javascript',
             \ 'perl': 'perl', 'python': 'python', 'java': 'java',
-            \ 'php': 'php', 'html': 'html', 'bash': 'sh', 'vim': 'vim', 'make': 'make'},
-	    \ 'auto_export': 0,},
+            \ 'php': 'php', 'html': 'html', 'bash': 'sh', 'vim': 'vim',
+            \ 'make': 'make'},
+            \ 'ext': '.wiki',},
 	    \{'path': '$VIMHOME/VimWiki/private/',
 	    \ 'diary_link_count': 5},]
-
-" 文件名中的空格将会替换成 g:vimwiki_stripsym 的值
-" g:vimwiki_stripsym 缺省值为下划线
-let g:vimwiki_badsyms = ' '
 
 " 设置编码
 let g:vimwiki_w32_dir_enc = 'utf-8'
@@ -235,8 +235,8 @@ let g:vimwiki_w32_dir_enc = 'utf-8'
 " 使用鼠标映射
 let g:vimwiki_use_mouse = 1
 
-" 对中文用户来说，我们并不怎么需要驼峰英文成为维基词条
-let g:vimwiki_camel_case = 0
+"Use VimwikiHeader1-VimwikiHeader6 group colors to highlight
+let g:vimwiki_hl_headers=1
 
 " Checked list items can be highlighted with a color
 let g:vimwiki_hl_cb_checked = 1
@@ -248,9 +248,8 @@ let g:vimwiki_menu = ''
 let g:vimwiki_CJK_length = 1
 
 " 声明可以在wiki里面使用的HTML标签
-let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,br,hr,div,del,code,red,center,left,right'
-
-let g:vimwiki_file_exts='pdf,txt,doc,rtf,xls,ppt,php,html,zip,rar,7z,gz,bz2,xz'
+"let g:vimwiki_valid_html_tags='b,i,s,u,sub,sup,kbd,br,hr,div,del,code,red,center,left,right'
+let g:vimwiki_valid_html_tags=''
 
 " 'path_html'路径下的这些文件不会被命令:VimwikiAll2HTML自动删除
 let g:vimwiki_user_htmls = '404.html,search.html'
@@ -261,6 +260,10 @@ let g:vimwiki_user_htmls = '404.html,search.html'
 "let g:vimwiki_html_header_numbering_sym=' '
 
 let g:vimwiki_browsers=['firefox']
+
+let g:vimwiki_ext2syntax = {'.md': 'markdown', 
+            \ '.mkd': 'markdown',
+            \ '.wiki': 'media'}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "设置fcitx插件

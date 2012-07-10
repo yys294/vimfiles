@@ -29,9 +29,9 @@ if g:ostype=='mac'
 "elseif has("win16") || has("win32")
 elseif g:ostype=='windows'
     set guifont=YaHei_Consolas_Hybrid:h12:cANSI
-    "set guifontwide=¿¬Ìå_GB2312:h14:cGB2312
-    "set guifontwide=ËÎÌå:h12:cGB2312
-    "set guifontwide=Á¥Êé:h15:cGB2312
+    "set guifontwide=æ¥·ä½“_GB2312:h14:cGB2312
+    "set guifontwide=å®‹ä½“:h12:cGB2312
+    "set guifontwide=éš¶ä¹¦:h15:cGB2312
 elseif g:ostype=='unix'
     set gfn=Monospace\ 12
     set shell=/bin/bash
@@ -54,7 +54,7 @@ if g:ostype=='windows' && has('gui_running')
             simalt ~x
         endif
     endfunction
-    "F11 ¼üÊ¹gvim ÔÚÈ«ÆÁºÍÆÕÍ¨Ä£Ê½¼äÇĞ»»
+    "F11 é”®ä½¿gvim åœ¨å…¨å±å’Œæ™®é€šæ¨¡å¼é—´åˆ‡æ¢
     map <F11> :call ToggleScreen()<CR>
     imap <F11> <Esc>:call ToggleScreen()<CR>
     map <C-F11> :call libcallnr("vimtweak.dll", "SetAlpha", 200)<CR>
@@ -89,9 +89,9 @@ endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ×Ô¶¯¸üĞÂÎÄ¼şµÄ×îºó¸üĞÂÊ±¼ä
+" è‡ªåŠ¨æ›´æ–°æ–‡ä»¶çš„æœ€åæ›´æ–°æ—¶é—´
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd BufWritePre,FileWritePre *.{cpp,h,py,c,cc,hpp,vim,cxx},*vimrc call AutoUpdateTheLastUpdateInfo()
+autocmd BufWritePre,FileWritePre *.{cpp,h,py,c,cc,hpp,vim,cxx,wiki},*vimrc call AutoUpdateTheLastUpdateInfo()
 function! AutoUpdateTheLastUpdateInfo()
 	let s:original_pos = getpos(".")
 	let s:regexp = "^\\s*\\([#\\\"\\*]\\|\\/\\/\\)\\s\\+[lL]ast \\([uU]pdated\\|[cC]hanged\\|[mM]odified\\):"
