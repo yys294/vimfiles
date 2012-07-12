@@ -217,7 +217,7 @@ au filetype vimwiki setl tw=0
 " 多个维基项目的配置
 let g:vimwiki_list = [{'path': '$VIMHOME/VimWiki/public/wiki/',
             \ 'path_html': '$VIMHOME/VimWiki/public/html/',
-            \ 'template_path': '$VIMHOME/VimWiki/public/template/',
+            \ 'template_path': '$VIMHOME/VimWiki/public/wiki/template/',
             \ 'template_default': 'default_template',
             \ 'template_ext': '.html',
 	    \ 'nested_syntaxes': {'asm': 'asm', 'c': 'c', 'cpp': 'cpp',
