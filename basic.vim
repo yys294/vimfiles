@@ -158,11 +158,10 @@ endif
 " => Encoding, Fileformats
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set encoding=utf-8
-"chinese 是个别名，在 Unix 里表示 gb2312，在 Windows 里表示 cp936
-set fileencodings=ucs-bom,utf-8,chinese
+set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 if (g:ostype=='windows')
-    set fenc=chinese
-    set termencoding=chinese
+    set fenc=cp936
+    set termencoding=cp936
 else
     set fenc=utf-8
     set termencoding=utf-8
