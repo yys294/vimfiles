@@ -15,11 +15,9 @@ if has("gui_running")
     colorscheme lucius
 else
     "colorscheme ir_black
-
-    "g:lucius_style="dark_dim"
-    colorscheme lucius
-
-    set t_Co=256
+    colorscheme delek
+    "colorscheme lucius
+    "set t_Co=256
 endif
 
 " Set font according to system
