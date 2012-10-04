@@ -248,8 +248,9 @@ set smarttab
     "set lbr
 "endif
 "set tw=78
-set formatoptions+=mM
-au filetype txt,text setlocal formatoptions=aw2tqmM
+"set formatoptions+=mM
+"au filetype txt,text setlocal formatoptions=aw2qmM
+au filetype txt,text setlocal tw=0
 
 set autoindent
 "set smartindent
