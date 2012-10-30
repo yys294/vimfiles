@@ -24,7 +24,6 @@ endif
 if g:ostype=='mac'
     set gfn=Menlo:h14
     set shell=/bin/bash
-"elseif has("win16") || has("win32")
 elseif g:ostype=='windows'
     set guifont=YaHei_Consolas_Hybrid:h12:cANSI
     "set guifontwide=楷体_GB2312:h14:cGB2312
@@ -169,6 +168,13 @@ iab time <c-r>=strftime("%Y-%m-%d %H:%M:%S")<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set omnifunc=syntaxcomplete#Complete
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => 简繁转换，要求有工具cconv
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+command G2b :%!cconv -f UTF8-CN -t UTF8-HK
+command B2g :%!cconv -f UTF8-HK -t UTF8-CN
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

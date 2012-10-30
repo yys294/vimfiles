@@ -1,4 +1,10 @@
-#!/usr/bin/env python3
-# vim:fileencoding=utf-8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
+"""
+"""
 
+if __name__=='__main__':
+    main()
+
+__revision__ = '1.0'

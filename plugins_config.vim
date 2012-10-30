@@ -211,7 +211,6 @@ nmap <Leader>N <Plug>MarkAllClear
 au filetype vimwiki map <F5> :Vimwiki2HTML<cr>
 au filetype vimwiki map <C-F5> :Vimwiki2HTMLBrowse<cr>
 au filetype vimwiki map <F6> :VimwikiAll2HTML<cr>
-au BufNewFile *.wiki 0r $VIMFILES/templates/template.wiki
 au filetype vimwiki setl tw=0
 
 " 多个维基项目的配置

@@ -4,10 +4,19 @@
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""
+" => 根据文件扩展名载入模板文件
+""""""""""""""""""""""""""""""
+au BufNewFile * silent 0r $VIMFILES/templates/template.%:e
+
+""""""""""""""""""""""""""""""
+" => html/xml section
+""""""""""""""""""""""""""""""
+au FileType html,xml setlocal sw=2
+
+""""""""""""""""""""""""""""""
 " => Python section
 """"""""""""""""""""""""""""""
 let python_highlight_all = 1
-au BufNewFile *.py 0r $VIMFILES/templates/skeleton.py
 au FileType python syn keyword pythonDecorator True None False self
 au FileType python setlocal et sta sw=4 sts=4 ts=4 tw=72
 au FileType python set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
