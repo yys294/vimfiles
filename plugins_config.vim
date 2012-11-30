@@ -214,19 +214,25 @@ au filetype vimwiki map <F6> :VimwikiAll2HTML<cr>
 au filetype vimwiki setl tw=0
 
 " 多个维基项目的配置
-let g:vimwiki_list = [{'path': '$VIMHOME/VimWiki/public/wiki/',
-            \ 'path_html': '$VIMHOME/VimWiki/public/html/',
-            \ 'template_path': '$VIMHOME/VimWiki/public/wiki/template/',
-            \ 'template_default': 'default_template',
-            \ 'template_ext': '.html',
-	    \ 'nested_syntaxes': {'asm': 'asm', 'c': 'c', 'cpp': 'cpp',
+let wiki_1 = {}
+let wiki_1.path = '$VIMHOME/VimWiki/public/wiki/'
+let wiki_1.path_html = '$VIMHOME/VimWiki/public/html/'
+let wiki_1.template_path = '$VIMHOME/VimWiki/public/wiki/template/'
+let wiki_1.template_default = 'default_template'
+let wiki_1.template_ext = '.html'
+let wiki_1.nested_syntaxes = {'asm': 'asm', 'c': 'c', 'cpp': 'cpp',
             \ 'css': 'css', 'js': 'javascript',
             \ 'perl': 'perl', 'python': 'python', 'java': 'java',
             \ 'php': 'php', 'html': 'html', 'bash': 'sh', 'vim': 'vim',
-            \ 'make': 'make'},
-            \ 'ext': '.wiki',},
-	    \{'path': '$VIMHOME/VimWiki/private/',
-	    \ 'diary_link_count': 5},]
+            \ 'make': 'make'}
+let wiki_1.index = 'main'
+let wiki_1.ext = '.wiki'
+
+let wiki_2 = {}
+let wiki_2.path = '$VIMHOME/VimWiki/private/wiki/'
+let wiki_2.index = 'main'
+
+let g:vimwiki_list = [wiki_1, wiki_2]
 
 " 设置编码
 let g:vimwiki_w32_dir_enc = 'utf-8'
@@ -258,11 +264,13 @@ let g:vimwiki_user_htmls = '404.html,search.html'
 " 标题编号后跟')'
 "let g:vimwiki_html_header_numbering_sym=' '
 
-let g:vimwiki_browsers=['firefox']
+"let g:vimwiki_browsers=['firefox']
 
 let g:vimwiki_ext2syntax = {'.md': 'markdown', 
             \ '.mkd': 'markdown',
             \ '.wiki': 'media'}
+
+"let g:vimwiki_dir_link='main'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "设置fcitx插件

@@ -319,9 +319,9 @@ map <leader>tm :tabmove
 map <leader>te :tabedit <c-r>=expand("%:p:h")<cr>/
 
 " Switch CWD to the directory of the open buffer
-map <leader>cd :cd %:p:h<cr>:pwd<cr>
+"map <leader>cd :cd %:p:h<cr>:pwd<cr>
 "自动设置Vim的工作路径为当前文件所在的文件夹
-"autocmd BufEnter * lcd %:p:h
+autocmd BufEnter * lcd %:p:h
 
 " Specify the behavior when switching between buffers 
 try

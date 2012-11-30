@@ -4,9 +4,9 @@
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """"""""""""""""""""""""""""""
-" => ¸ù¾İÎÄ¼şÀ©Õ¹ÃûÔØÈëÄ£°åÎÄ¼ş
+" => æ ¹æ®æ–‡ä»¶æ‰©å±•åè½½å…¥æ¨¡æ¿æ–‡ä»¶
 """"""""""""""""""""""""""""""
-au BufNewFile * silent 0r $VIMFILES/templates/template.%:e
+au! BufNewFile * silent! 0r $VIMFILES/templates/template.%:e
 
 """"""""""""""""""""""""""""""
 " => html/xml section
@@ -20,10 +20,10 @@ let python_highlight_all = 1
 au FileType python syn keyword pythonDecorator True None False self
 au FileType python setlocal et sta sw=4 sts=4 ts=4 tw=72
 au FileType python set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-"ÒÔËõ½øÎª´úÂëÕÛµşµÄÒÀ¾İ
+"ä»¥ç¼©è¿›ä¸ºä»£ç æŠ˜å çš„ä¾æ®
 "au FileType python map <buffer> F :setlocal foldmethod=indent<cr>
 au FileType python setlocal foldmethod=indent
-"Ä¬ÈÏÕ¹¿ªËùÓĞ´úÂë
+"é»˜è®¤å±•å¼€æ‰€æœ‰ä»£ç 
 "au FileType python setlocal foldlevel=99
 au FileType python setlocal omnifunc=pythoncomplete#Complete
 

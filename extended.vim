@@ -95,7 +95,7 @@ function! AutoUpdateTheLastUpdateInfo()
 	let s:lu = search(s:regexp)
 	if s:lu != 0
 		let s:update_str = matchstr(getline(s:lu), s:regexp)
-		call setline(s:lu, s:update_str . strftime(" %c"))
+		call setline(s:lu, s:update_str . strftime(" %Y-%m-%d %H:%M"))
 		call setpos(".", s:original_pos)
 	endif
 endfunction
