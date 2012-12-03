@@ -36,6 +36,13 @@ endif
 " Dark, high contrast, warm colorscheme for gvim and 256 color terminal inspired by molokai and badwolf
 colors harlequin
 
+" colors-lucius
+"colors lucius
+"LuciusDarkHighContrast
+"LuciusBlack
+"LuciusLight
+"LuciusWhite
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " statusline setting
