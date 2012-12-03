@@ -21,6 +21,23 @@ endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" The other color schemes setting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" colors-solarized
+"set background=dark     "dark blue background
+"set background=light    "light yellow background
+"let g:solarized_termcolors=256
+"colorscheme solarized
+
+" colors-jellybeans, dark color scheme, inspired by ir_black and twilight
+"colorscheme jellybeans
+
+" colors-harlequin
+" Dark, high contrast, warm colorscheme for gvim and 256 color terminal inspired by molokai and badwolf
+colors harlequin
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " statusline setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "autocmd! ColorScheme *  source $VIMFILES/bundle/statusline/plugin/statusline.vim

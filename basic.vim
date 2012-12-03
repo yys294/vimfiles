@@ -107,22 +107,12 @@ set tm=500
 " Enable syntax highlighting
 syntax enable
 
-if has("gui_running")
-    try
-        colorscheme ir_black
-        "colorscheme lucius
-        "colorscheme molokai
-    catch //
-    endtry
-else
-    try
-        colorscheme ir_black
-        "colorscheme lucius
-        "colorscheme molokai
-        set t_Co=256
-    catch //
-    endtry
+if !has("gui_running")
+    set t_Co=256
 endif
+"colorscheme ir_black
+"colorscheme molokai
+colors gummybears
 
 " Set font according to system
 if g:ostype=='mac'
