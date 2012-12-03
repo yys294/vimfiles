@@ -40,3 +40,12 @@
 [submodule "bundle/colorv"]
 	path = bundle/colorv
 	url = git@github.com:Rykka/colorv.vim.git
+[submodule "bundle/colors-solarized"]
+	path = bundle/colors-solarized
+	url = git@github.com:altercation/vim-colors-solarized.git
+[submodule "bundle/colors-jellybeans"]
+	path = bundle/colors-jellybeans
+	url = git@github.com:nanotech/jellybeans.vim.git
+[submodule "bundle/colors-harlequin"]
+	path = bundle/colors-harlequin
+	url = git@github.com:nielsmadan/harlequin.git
