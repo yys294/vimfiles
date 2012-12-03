@@ -109,9 +109,12 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+" 在缓冲区间切换
+noremap <leader>bn :bnext!<CR>
+noremap <leader>bp :bprev!<CR>
+
 " 卸载当前缓冲区
 map <leader>bd :Bclose<cr>
-
 " 卸载所有缓冲区,但不退出Vim（已知问题：导致NERDTree窗口无法打开）
 "map <leader>ba :1,1000 bd!<cr>
 map <leader>ba :1,1000 bd<cr>

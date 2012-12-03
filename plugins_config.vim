@@ -21,6 +21,12 @@ endif
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" statusline setting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"autocmd! ColorScheme *  source $VIMFILES/bundle/statusline/plugin/statusline.vim
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => bufExplorer plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:bufExplorerDefaultHelp=0
@@ -33,38 +39,27 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " minibufexpl插件设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:miniBufExplSplitBelow=0
-"let g:miniBufExplSplitToEdge = 1
-"let g:miniBufExplMaxSize = 3
-
-"let g:miniBufExplMapWindowNavVim = 1
-"let g:miniBufExplMapWindowNavArrows = 0
+let g:miniBufExplSplitBelow=0
+"let g:miniBufExplMoreThanOne=0
+"let g:miniBufExplMapWindowNavArrows = 1
 "let g:miniBufExplMapCTabSwitchBufs = 1
-"let g:miniBufExplModSelTarget = 1
+let g:miniBufExplModSelTarget = 1
+let g:miniBufExplForceSyntaxEnable = 1
 
-"let g:miniBufExplMoreThanOne=1
-"let g:miniBufExplForceSyntaxEnable = 1
-
-"hi MBEChanged guibg=darkblue ctermbg=darkblue
-
-"nnoremap <leader>bn :MBEbn<cr>
-"nnoremap <leader>bp :MBEbp<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " buftabs设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-noremap <leader>bp :bprev!<CR>
-noremap <leader>bn :bnext!<CR>
-"   Define this variable to make buftabs only print the filename of each buffer,
-"   omitting the preceding directory name.
-let g:buftabs_only_basename=1
+""   Define this variable to make buftabs only print the filename of each buffer,
+""   omitting the preceding directory name.
+"let g:buftabs_only_basename=1
 
-"   These strings are drawn around each tab as separators, the 'marker_modified'
-"   symbol is used to denote a modified (unsaved) buffer.
-let g:buftabs_separator = "."
-let g:buftabs_marker_start = "["
-let g:buftabs_marker_end = "]"
-let g:buftabs_marker_modified = "*"
+""   These strings are drawn around each tab as separators, the 'marker_modified'
+""   symbol is used to denote a modified (unsaved) buffer.
+"let g:buftabs_separator = "."
+"let g:buftabs_marker_start = "["
+"let g:buftabs_marker_end = "]"
+"let g:buftabs_marker_modified = "*"
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -72,14 +67,14 @@ let g:buftabs_marker_modified = "*"
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "nmap <leader>ne :NERDTree<cr>
 nmap <leader>nt :NERDTreeToggle<cr>
-nmap <leader>nb :NERDTreeFromBookmark 
+nmap <leader>nb :NERDTreeFromBookmark
 nmap <leader>nf :NERDTreeFind<cr>
 " Open a NERDTree automatically when vim starts up if no files were specified
 autocmd vimenter * if !argc() | NERDTree | endif
 " Open a NERDTree automatically when vim starts up
 "autocmd vimenter * NERDTree
 " Close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") 
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType")
             \ && b:NERDTreeType == "primary") | q | endif
 
 
@@ -96,7 +91,7 @@ let g:ctrlp_custom_ignore = {
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" taglist setting
+" => taglist setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let Tlist_Ctags_Cmd = 'ctags'
 let Tlist_Show_One_File = 1
@@ -111,13 +106,7 @@ nmap <silent> <leader>tl :TlistToggle<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" statusline setting
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd! ColorScheme *  source $VIMFILES/bundle/statusline/plugin/statusline.vim
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" pydiction设置
+" => pydiction设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:pydiction_location = '$VIMFILES/bundle/pydiction-1.2/complete-dict'
 
@@ -137,6 +126,7 @@ autocmd BufEnter,WinEnter,BufNewFile,BufRead *.txt setlocal ft=txt
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Auto Preview color-text in *.css files.  Auto update view after write file.
 "let g:ColorV_prev_css=1
+let g:colorv_preview_ftype = 'css,html,javascript,vim'
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -197,7 +187,7 @@ let g:vimwiki_list = [wiki_1, wiki_2]
 
 " 设置编码
 let g:vimwiki_w32_dir_enc = 'utf-8'
- 
+
 " 使用鼠标映射
 let g:vimwiki_use_mouse = 1
 
@@ -227,7 +217,7 @@ let g:vimwiki_user_htmls = '404.html,search.html'
 
 "let g:vimwiki_browsers=['firefox']
 
-let g:vimwiki_ext2syntax = {'.md': 'markdown', 
+let g:vimwiki_ext2syntax = {'.md': 'markdown',
             \ '.mkd': 'markdown',
             \ '.wiki': 'media'}
 
@@ -250,5 +240,5 @@ let g:xptemplate_key = '<TAB>'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => load_template plugin
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:template_path = '$VIMFILES/template/' 
+let g:template_path = '$VIMFILES/template/'
 nmap <leader>lt :LoadTemplate<CR>

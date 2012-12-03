@@ -83,14 +83,14 @@ set incsearch
 set nowrapscan
 
 " Don't redraw while executing macros (good performance config)
-set lazyredraw 
+"set lazyredraw
 
 " For regular expressions turn magic on
 set magic
 
 " Show matching brackets when text indicator is over them
 " 插入括号时，短暂地跳转到匹配的对应括号。只有在屏幕上能看到匹配时才会进行跳转
-set showmatch 
+set showmatch
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
@@ -109,18 +109,16 @@ syntax enable
 
 if has("gui_running")
     try
-        "colorscheme liquidcarbon
+        colorscheme ir_black
         "colorscheme lucius
-        colorscheme molokai
-        set t_Co=256
+        "colorscheme molokai
     catch //
     endtry
 else
     try
-        "colorscheme ir_black
-        "colorscheme delek
+        colorscheme ir_black
         "colorscheme lucius
-        colorscheme molokai
+        "colorscheme molokai
         set t_Co=256
     catch //
     endtry

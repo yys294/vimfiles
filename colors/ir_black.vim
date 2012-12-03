@@ -66,62 +66,62 @@ let colors_name = "ir_black"
 "hi Example         guifg=NONE        guibg=NONE        gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=NONE
 
 " General colors
-hi Normal           guifg=#f6f3e8     guibg=black       gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=NONE
-hi NonText          guifg=#070707     guibg=black       gui=NONE      ctermfg=black       ctermbg=NONE        cterm=NONE
+highlight Normal guifg=#f6f3e8 guibg=black gui=NONE ctermfg=255 ctermbg=16 cterm=NONE
+highlight NonText guifg=#070707 guibg=black gui=NONE ctermfg=232 ctermbg=16 cterm=NONE
 
-hi Cursor           guifg=black       guibg=white       gui=NONE      ctermfg=black       ctermbg=white       cterm=reverse
-hi LineNr           guifg=#3D3D3D     guibg=black       gui=NONE      ctermfg=darkgray    ctermbg=NONE        cterm=NONE
+highlight Cursor guifg=black guibg=white gui=NONE ctermfg=16 ctermbg=231 cterm=NONE
+highlight LineNr guifg=#3d3d3d guibg=black gui=NONE ctermfg=237 ctermbg=16 cterm=NONE
 
-hi VertSplit        guifg=#202020     guibg=#202020     gui=NONE      ctermfg=darkgray    ctermbg=darkgray    cterm=NONE
-hi StatusLine       guifg=#CCCCCC     guibg=#202020     gui=italic    ctermfg=white       ctermbg=darkgray    cterm=NONE
-hi StatusLineNC     guifg=black       guibg=#202020     gui=NONE      ctermfg=blue        ctermbg=darkgray    cterm=NONE  
+highlight VertSplit guifg=#202020 guibg=#202020 gui=NONE ctermfg=234 ctermbg=234 cterm=NONE
+highlight StatusLine guifg=#cccccc guibg=#202020 gui=italic ctermfg=252 ctermbg=234 cterm=NONE
+highlight StatusLineNC guifg=black guibg=#202020 gui=NONE ctermfg=16 ctermbg=234 cterm=NONE
 
-hi Folded           guifg=#a0a8b0     guibg=#384048     gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=NONE
-hi Title            guifg=#f6f3e8     guibg=NONE        gui=bold      ctermfg=NONE        ctermbg=NONE        cterm=NONE
-hi Visual           guifg=NONE        guibg=#262D51     gui=NONE      ctermfg=NONE        ctermbg=darkgray    cterm=NONE
+highlight Folded guifg=#a0a8b0 guibg=#384048 gui=NONE ctermfg=248 ctermbg=238 cterm=NONE
+highlight Title guifg=#f6f3e8 guibg=NONE gui=bold ctermfg=255 cterm=bold
+highlight Visual guifg=NONE guibg=#262d51 gui=NONE ctermbg=17 cterm=NONE
 
-hi SpecialKey       guifg=#808080     guibg=#343434     gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=NONE
+highlight SpecialKey guifg=#808080 guibg=#343434 gui=NONE ctermfg=244 ctermbg=236 cterm=NONE
 
-hi WildMenu         guifg=green       guibg=yellow      gui=NONE      ctermfg=black       ctermbg=yellow      cterm=NONE
-hi PmenuSbar        guifg=black       guibg=white       gui=NONE      ctermfg=black       ctermbg=white       cterm=NONE
+highlight WildMenu guifg=green guibg=yellow gui=NONE ctermfg=46 ctermbg=226 cterm=NONE
+highlight PmenuSbar guifg=black guibg=white gui=NONE ctermfg=16 ctermbg=231 cterm=NONE
 "hi Ignore           guifg=gray        guibg=black       gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=NONE
 
-hi Error            guifg=NONE        guibg=NONE        gui=undercurl ctermfg=white       ctermbg=red         cterm=NONE     guisp=#FF6C60 " undercurl color
-hi ErrorMsg         guifg=white       guibg=#FF6C60     gui=BOLD      ctermfg=white       ctermbg=red         cterm=NONE
-hi WarningMsg       guifg=white       guibg=#FF6C60     gui=BOLD      ctermfg=white       ctermbg=red         cterm=NONE
+highlight Error guisp=#ff6c60 guifg=NONE guibg=NONE gui=undercurl cterm=undercurl
+highlight ErrorMsg guifg=white guibg=#ff6c60 gui=bold ctermfg=231 ctermbg=203 cterm=bold
+highlight WarningMsg guifg=white guibg=#ff6c60 gui=bold ctermfg=231 ctermbg=203 cterm=bold
 
 " Message displayed in lower left, such as --INSERT--
-hi ModeMsg          guifg=black       guibg=#C6C5FE     gui=BOLD      ctermfg=black       ctermbg=cyan        cterm=BOLD
+highlight ModeMsg guifg=black guibg=#c6c5fe gui=bold ctermfg=16 ctermbg=189 cterm=bold
 
 if version >= 700 " Vim 7.x specific colors
-  hi CursorLine     guifg=NONE        guibg=#121212     gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=BOLD
-  hi CursorColumn   guifg=NONE        guibg=#121212     gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=BOLD
-  hi MatchParen     guifg=#f6f3e8     guibg=#857b6f     gui=BOLD      ctermfg=white       ctermbg=darkgray    cterm=NONE
-  hi Pmenu          guifg=#f6f3e8     guibg=#444444     gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=NONE
-  hi PmenuSel       guifg=#000000     guibg=#cae682     gui=NONE      ctermfg=NONE        ctermbg=NONE        cterm=NONE
-  hi Search         guifg=NONE        guibg=NONE        gui=underline ctermfg=NONE        ctermbg=NONE        cterm=underline
+highlight CursorLine guifg=NONE guibg=#121212 gui=NONE ctermbg=233 cterm=NONE
+highlight CursorColumn guifg=NONE guibg=#121212 gui=NONE ctermbg=233 cterm=NONE
+highlight MatchParen guifg=#f6f3e8 guibg=#857b6f gui=bold ctermfg=255 ctermbg=244 cterm=bold
+highlight Pmenu guifg=#f6f3e8 guibg=#444444 gui=NONE ctermfg=255 ctermbg=238 cterm=NONE
+highlight PmenuSel guifg=#000000 guibg=#cae682 gui=NONE ctermfg=16 ctermbg=149 cterm=NONE
+highlight Search guifg=NONE guibg=NONE gui=underline cterm=underline
 endif
 
 " Syntax highlighting
-hi Comment          guifg=#7C7C7C     guibg=NONE        gui=NONE      ctermfg=darkgray    ctermbg=NONE        cterm=NONE
-hi String           guifg=#A8FF60     guibg=NONE        gui=NONE      ctermfg=green       ctermbg=NONE        cterm=NONE
-hi Number           guifg=#FF73FD     guibg=NONE        gui=NONE      ctermfg=magenta     ctermbg=NONE        cterm=NONE
+highlight Comment guifg=#7c7c7c guibg=NONE gui=NONE ctermfg=244 cterm=NONE
+highlight String guifg=#a8ff60 guibg=NONE gui=NONE ctermfg=155 cterm=NONE
+highlight Number guifg=#ff73fd guibg=NONE gui=NONE ctermfg=207 cterm=NONE
 
-hi Keyword          guifg=#96CBFE     guibg=NONE        gui=NONE      ctermfg=blue        ctermbg=NONE        cterm=NONE
-hi PreProc          guifg=#96CBFE     guibg=NONE        gui=NONE      ctermfg=blue        ctermbg=NONE        cterm=NONE
-hi Conditional      guifg=#6699CC     guibg=NONE        gui=NONE      ctermfg=blue        ctermbg=NONE        cterm=NONE  " if else end
+highlight Keyword guifg=#96cbfe guibg=NONE gui=NONE ctermfg=153 cterm=NONE
+highlight PreProc guifg=#96cbfe guibg=NONE gui=NONE ctermfg=153 cterm=NONE
+highlight Conditional guifg=#6699cc guibg=NONE gui=NONE ctermfg=67 cterm=NONE
 
-hi Todo             guifg=#8f8f8f     guibg=NONE        gui=NONE      ctermfg=red         ctermbg=NONE        cterm=NONE
-hi Constant         guifg=#99CC99     guibg=NONE        gui=NONE      ctermfg=cyan        ctermbg=NONE        cterm=NONE
+highlight Todo guifg=#8f8f8f guibg=NONE gui=NONE ctermfg=246 cterm=NONE
+highlight Constant guifg=#99cc99 guibg=NONE gui=NONE ctermfg=151 cterm=NONE
 
-hi Identifier       guifg=#C6C5FE     guibg=NONE        gui=NONE      ctermfg=cyan        ctermbg=NONE        cterm=NONE
-hi Function         guifg=#FFD2A7     guibg=NONE        gui=NONE      ctermfg=brown       ctermbg=NONE        cterm=NONE
-hi Type             guifg=#FFFFB6     guibg=NONE        gui=NONE      ctermfg=yellow      ctermbg=NONE        cterm=NONE
-hi Statement        guifg=#6699CC     guibg=NONE        gui=NONE      ctermfg=lightblue   ctermbg=NONE        cterm=NONE
+highlight Identifier guifg=#c6c5fe guibg=NONE gui=NONE ctermfg=189 cterm=NONE
+highlight Function guifg=#ffd2a7 guibg=NONE gui=NONE ctermfg=223 cterm=NONE
+highlight Type guifg=#ffffb6 guibg=NONE gui=NONE ctermfg=229 cterm=NONE
+highlight Statement guifg=#6699cc guibg=NONE gui=NONE ctermfg=67 cterm=NONE
 
-hi Special          guifg=#E18964     guibg=NONE        gui=NONE      ctermfg=white       ctermbg=NONE        cterm=NONE
-hi Delimiter        guifg=#00A0A0     guibg=NONE        gui=NONE      ctermfg=cyan        ctermbg=NONE        cterm=NONE
-hi Operator         guifg=white       guibg=NONE        gui=NONE      ctermfg=white       ctermbg=NONE        cterm=NONE
+highlight Special guifg=#e18964 guibg=NONE gui=NONE ctermfg=173 cterm=NONE
+highlight Delimiter guifg=#00a0a0 guibg=NONE gui=NONE ctermfg=37 cterm=NONE
+highlight Operator guifg=white guibg=NONE gui=NONE ctermfg=231 cterm=NONE
 
 hi link Character       Constant
 hi link Boolean         Constant

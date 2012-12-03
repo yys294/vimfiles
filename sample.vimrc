@@ -41,4 +41,3 @@ source $VIMFILES/basic.vim
 source $VIMFILES/extended.vim
 source $VIMFILES/file_related.vim
 source $VIMFILES/plugins_config.vim
-
