@@ -49,3 +49,6 @@
 [submodule "bundle/colors-harlequin"]
 	path = bundle/colors-harlequin
 	url = git@github.com:nielsmadan/harlequin.git
+[submodule "bundle/colors-lucius"]
+	path = bundle/colors-lucius
+	url = git@github.com:jonathanfilip/vim-lucius.git
