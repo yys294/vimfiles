@@ -1,12 +1,18 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Important: 
-"       This requries that you have sourced basic.vim
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"=============================================================================
+"      FileName: file_related.vim
+"   Description: 与指定文件相关的配置，请确保至少已加载 basic.vim
+"        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
+"         Email: yysfire[at]gmail.com
+"      HomePage: http://
+"       Version: 6.0
+"  Last Changed: 2012-12-03 00:35:30
+"       History:
+"=============================================================================
 """"""""""""""""""""""""""""""
 " => 根据文件扩展名载入模板文件
 """"""""""""""""""""""""""""""
-au! BufNewFile * silent! 0r $VIMFILES/templates/template.%:e
+" 禁用，已安装load_template插件
+"au! BufNewFile * silent! 0r $VIMFILES/templates/template.%:e
 
 """"""""""""""""""""""""""""""
 " => html/xml section
@@ -24,7 +30,7 @@ au FileType python set smartindent cinwords=if,elif,else,for,while,try,except,fi
 "au FileType python map <buffer> F :setlocal foldmethod=indent<cr>
 au FileType python setlocal foldmethod=indent
 "默认展开所有代码
-"au FileType python setlocal foldlevel=99
+au FileType python setlocal foldlevel=99
 au FileType python setlocal omnifunc=pythoncomplete#Complete
 
 au FileType python inoremap <buffer> $r return 
@@ -211,7 +217,7 @@ endif
 """"""""""""""""""""""""""""""
 " => JavaScript section
 """""""""""""""""""""""""""""""
-au FileType javascript call JavaScriptFold()
+"au FileType javascript call JavaScriptFold()
 au FileType javascript setl fen
 au FileType javascript setl nocindent
 

@@ -1,15 +1,17 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Important: 
-"       This requries that you have sourced basic.vim
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"=============================================================================
+"      FileName: plugins_config.vim
+"   Description: 插件的相关配置，请确保至少已加载 basic.vim
+"        Author: 幽谷奇峰( https://twitter.com/yysfirecn )
+"         Email: yysfire[at]gmail.com
+"      HomePage: http://
+"       Version: 6.0
+"  Last Changed: 2012-12-03 00:35:07
+"       History:
+"=============================================================================
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 插件设置
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => pathogen plugin
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 call pathogen#infect() "添加bundle/下的子目录为runtimepath
 call pathogen#infect('doc') "添加doc/下的子目录为runtimepath
@@ -18,9 +20,9 @@ if g:ostype=='unix'
 endif
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => bufExplorer plugin
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:bufExplorerDefaultHelp=0
 "let g:bufExplorerShowRelativePath=1
 "let g:bufExplorerFindActive=1
@@ -28,9 +30,9 @@ endif
 "map <leader>be :BufExplorer<cr>
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " minibufexpl插件设置
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:miniBufExplSplitBelow=0
 "let g:miniBufExplSplitToEdge = 1
 "let g:miniBufExplMaxSize = 3
@@ -48,9 +50,9 @@ endif
 "nnoremap <leader>bn :MBEbn<cr>
 "nnoremap <leader>bp :MBEbp<cr>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " buftabs设置
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 noremap <leader>bp :bprev!<CR>
 noremap <leader>bn :bnext!<CR>
 "   Define this variable to make buftabs only print the filename of each buffer,
@@ -65,9 +67,9 @@ let g:buftabs_marker_end = "]"
 let g:buftabs_marker_modified = "*"
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERD_tree 设置
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "nmap <leader>ne :NERDTree<cr>
 nmap <leader>nt :NERDTreeToggle<cr>
 nmap <leader>nb :NERDTreeFromBookmark 
@@ -77,12 +79,13 @@ autocmd vimenter * if !argc() | NERDTree | endif
 " Open a NERDTree automatically when vim starts up
 "autocmd vimenter * NERDTree
 " Close vim if the only window left open is a NERDTree
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") 
+            \ && b:NERDTreeType == "primary") | q | endif
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => CtrlP plugin
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPBuffer'
 let g:ctrlp_custom_ignore = {
@@ -90,9 +93,11 @@ let g:ctrlp_custom_ignore = {
             \ 'file': '\.exe$\|\.so$\|\.dll$',
             \ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
             \ }
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " taglist setting
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let Tlist_Ctags_Cmd = 'ctags'
 let Tlist_Show_One_File = 1
 let Tlist_Exit_OnlyWindow = 1
@@ -104,110 +109,66 @@ let Tlist_File_Fold_Auto_Close=1
 "let Tlist_Auto_Open=1
 nmap <silent> <leader>tl :TlistToggle<cr>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Source Explorer setting
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap <leader>se :SrcExplToggle<CR>
-" // Set the height of Source Explorer window 
-let g:SrcExpl_winHeight = 8 
-" // Set 100 ms for refreshing the Source Explorer 
-let g:SrcExpl_refreshTime = 100 
-" // Set "Enter" key to jump into the exact definition context 
-let g:SrcExpl_jumpKey = "<ENTER>" 
-" // Set "Space" key for back from the definition context 
-let g:SrcExpl_gobackKey = "<SPACE>" 
-" // In order to Avoid conflicts, the Source Explorer should know what plugins 
-" // are using buffers. And you need add their bufname into the list below 
-" // according to the command ":buffers!" 
-let g:SrcExpl_pluginList = [ 
-        \ "__Tag_List__", 
-        \ "_NERD_tree_", 
-        \ "Source_Explorer" 
-    \ ] 
-" // Enable/Disable the local definition searching, and note that this is not 
-" // guaranteed to work, the Source Explorer doesn't check the syntax for now. 
-" // It only searches for a match with the keyword according to command 'gd' 
-"let g:SrcExpl_searchLocalDef = 1 
-" // Do not let the Source Explorer update the tags file when opening 
-let g:SrcExpl_isUpdateTags = 0 
-" // Use 'Exuberant Ctags' with '--sort=foldcase -R .' or '-L cscope.files' to 
-" //  create/update a tags file 
-"let g:SrcExpl_updateTagsCmd = "ctags --sort=foldcase -R ." 
-" // Set "<F12>" key for updating the tags file artificially 
-"let g:SrcExpl_updateTagsKey = "<F12>"
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" trinity setting
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Open and close all the three plugins on the same time 
-"nmap <leader>tt  :TrinityToggleAll<CR> 
-" Open and close the srcexpl.vim separately 
-"nmap <leader>se  :TrinityToggleSourceExplorer<CR> 
-" Open and close the taglist.vim separately 
-"nmap <leader>tl  :TrinityToggleTagList<CR> 
-" Open and close the NERD_tree.vim separately 
-"nmap <leader>ft  :TrinityToggleNERDTree<CR>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " statusline setting
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd! ColorScheme *  source $VIMFILES/bundle/statusline/plugin/statusline.vim
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " pydiction设置
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "let g:pydiction_location = '$VIMFILES/bundle/pydiction-1.2/complete-dict'
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" omnicppcomplete 设置
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 "设置a51 文件语法高亮
 autocmd BufEnter,WinEnter,BufNewFile,BufRead *.a51 setlocal filetype=a51
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "设置TxtBrowser 插件
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd BufEnter,WinEnter,BufNewFile,BufRead *.txt setlocal ft=txt
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "设置ColorV插件
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Auto Preview color-text in *.css files.  Auto update view after write file.
 "let g:ColorV_prev_css=1
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "设置grep插件
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set grepprg=grep\ -nH
 let Grep_Default_Options = '-i'
 let Grep_Skip_Dirs = 'RCS CVS SCCS .svn .git'
 let Grep_OpenQuickfixWindow = 1
 nnoremap <silent> <C-F3> :Grep<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "设置authorinfo插件
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vimrc_author='YYS'
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:vimrc_author='幽谷奇峰( https://twitter.com/yysfirecn )'
 let g:vimrc_email='yysfire[at]gmail.com'
 let g:vimrc_homepage='http://'
 nmap <F4> :AuthorInfoDetect<cr>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"设置supertab插件
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:SuperTabDefaultCompletionType = "context"
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "设置mark插件
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:mwDefaultHighlightingPalette = 'extended'
 nmap <Leader>M <Plug>MarkToggle
 nmap <Leader>N <Plug>MarkAllClear
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "设置vimwiki插件
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 au filetype vimwiki map <F5> :Vimwiki2HTML<cr>
 au filetype vimwiki map <C-F5> :Vimwiki2HTMLBrowse<cr>
 au filetype vimwiki map <F6> :VimwikiAll2HTML<cr>
@@ -272,10 +233,22 @@ let g:vimwiki_ext2syntax = {'.md': 'markdown',
 
 "let g:vimwiki_dir_link='main'
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "设置fcitx插件
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if g:ostype=='unix'
     set ttimeoutlen=100
 endif
 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"设置xptemplate插件
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:xptemplate_key = '<TAB>'
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => load_template plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:template_path = '$VIMFILES/template/' 
+nmap <leader>lt :LoadTemplate<CR>
