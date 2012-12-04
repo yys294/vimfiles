@@ -5,7 +5,7 @@
 "         Email: yysfire[at]gmail.com
 "      HomePage: http://
 "       Version: 6.0
-"  Last Changed: 2012-12-05 00:42:00
+"  Last Changed: 2012-12-05 00:54:46
 "       History:
 "=============================================================================
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -83,6 +83,7 @@ set incsearch
 set nowrapscan
 
 " Don't redraw while executing macros (good performance config)
+" 如果不置位此选项，自动更新文件修改时间的功能就会失效
 set lazyredraw
 
 " For regular expressions turn magic on
