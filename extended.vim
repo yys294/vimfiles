@@ -6,7 +6,7 @@
 "         Email: yysfire[at]gmail.com
 "      HomePage: http://
 "       Version: 6.0
-"  Last Changed: 2012-12-03 00:35:46
+"  Last Changed: 2012-12-05 00:42:28
 "       History:
 "=============================================================================
 " 快捷键的前导键设为逗号，默认值是反斜杠 '\'
@@ -83,7 +83,7 @@ endif
 autocmd BufWritePre,FileWritePre *.{cpp,h,py,c,cc,hpp,vim,cxx,wiki},*vimrc call AutoUpdateTheLastUpdateInfo()
 function! AutoUpdateTheLastUpdateInfo()
 	let s:original_pos = getpos(".")
-	let s:regexp = "^\\s*\\([#\\\"\\*]\\|\\/\\/\\)\\s\\+[lL]ast \\([uU]pdated\\|[cC]hanged\\|[mM]odified\\):"
+        let s:regexp = '^\s*\([#"\*]\|\/\/\)\s\+[lL]ast \([uU]pdated\|[cC]hanged\|[mM]odified\):'
 	let s:lu = search(s:regexp)
 	if s:lu != 0
 		let s:update_str = matchstr(getline(s:lu), s:regexp)
