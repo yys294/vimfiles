@@ -5,7 +5,7 @@
 "         Email: yysfire[at]gmail.com
 "      HomePage: http://
 "       Version: 6.0
-"  Last Changed: 2012-12-03 00:35:07
+"  Last Changed: 2012-12-05 11:32:09
 "       History:
 "=============================================================================
 
@@ -26,15 +26,10 @@ endif
 " colors-solarized
 "set background=dark     "dark blue background
 "set background=light    "light yellow background
-"let g:solarized_termcolors=256
 "colorscheme solarized
 
 " colors-jellybeans, dark color scheme, inspired by ir_black and twilight
 "colorscheme jellybeans
-
-" colors-harlequin
-" Dark, high contrast, warm colorscheme for gvim and 256 color terminal inspired by molokai and badwolf
-colors harlequin
 
 " colors-lucius
 "colors lucius
@@ -42,6 +37,10 @@ colors harlequin
 "LuciusBlack
 "LuciusLight
 "LuciusWhite
+
+" colors-harlequin
+" Dark, high contrast, warm colorscheme for gvim and 256 color terminal inspired by molokai and badwolf
+colors harlequin
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
