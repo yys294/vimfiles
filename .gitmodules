@@ -52,3 +52,6 @@
 [submodule "bundle/colors-lucius"]
 	path = bundle/colors-lucius
 	url = git@github.com:jonathanfilip/vim-lucius.git
+[submodule "bundle/SingleCompile"]
+	path = bundle/SingleCompile
+	url = https://github.com/xuhdev/SingleCompile.git
