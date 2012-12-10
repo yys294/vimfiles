@@ -5,7 +5,7 @@
 "         Email: yysfire[at]gmail.com
 "      HomePage: http://
 "       Version: 6.0
-"  Last Changed: 2012-12-05 00:54:46
+"  Last Changed: 2012-12-10 09:54:06
 "       History:
 "=============================================================================
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -279,11 +279,10 @@ autocmd BufReadPost *
 set laststatus=2
 
 " Format the status line
-"set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l
-
-" Another status line style
 set statusline=
+set statusline+=%{HasPaste()}
 set statusline+=\ %F%m%r%h\ %w%=
+set statusline+=\ CWD:%r%{getcwd()}%h
 set statusline+=\ [%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}][%{&ff}]%y\ 
 set statusline+=\ %l/%L=%p%%,%c\ 
 set statusline+=\ %b,0x%B
@@ -294,7 +293,7 @@ set statusline+=\ %b,0x%B
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 augroup AutoMkdir
     autocmd!
-    autocmd  BufNewFile  *  :call EnsureDirExists()
+    autocmd  BufNewFile  *  :call vimrcfunc#basic#EnsureDirExists()
 augroup END
 
 
@@ -331,27 +330,9 @@ let g:use_xhtml = 0
 " Returns true if paste mode is enabled
 function! HasPaste()
     if &paste
-        return 'PASTE MODE  '
+        return 'Paste'
     en
     return ''
 endfunction
 
-function! EnsureDirExists ()
-    let required_dir = expand("%:h")
-    if !isdirectory(required_dir)
-	call AskQuit("Directory '" . required_dir . "' doesn't exist.", "&Create it?")
-
-	try
-	    call mkdir( required_dir, 'p' )
-	catch
-	    call AskQuit("Can't create '" . required_dir . "'", "&Continue anyway?")
-	endtry
-    endif
-endfunction
-
-function! AskQuit (msg, proposed_action)
-    if confirm(a:msg, "&Quit?\n" . a:proposed_action) == 1
-	exit
-    endif
-endfunction
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

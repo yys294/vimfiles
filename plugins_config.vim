@@ -5,7 +5,7 @@
 "         Email: yysfire[at]gmail.com
 "      HomePage: http://
 "       Version: 6.0
-"  Last Changed: 2012-12-05 11:32:09
+"  Last Changed: 2012-12-10 11:08:38
 "       History:
 "=============================================================================
 
@@ -50,39 +50,13 @@ colors harlequin
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => bufExplorer plugin
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:bufExplorerDefaultHelp=0
-"let g:bufExplorerShowRelativePath=1
-"let g:bufExplorerFindActive=1
-"let g:bufExplorerSortBy='name'
-"map <leader>be :BufExplorer<cr>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " minibufexpl插件设置
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:miniBufExplSplitBelow=0
-"let g:miniBufExplMoreThanOne=0
-"let g:miniBufExplMapWindowNavArrows = 1
-"let g:miniBufExplMapCTabSwitchBufs = 1
+" 此项不用设置，设了反而不妙
+"let g:miniBufExplSplitBelow=0
 let g:miniBufExplModSelTarget = 1
-let g:miniBufExplForceSyntaxEnable = 1
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" buftabs设置
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""   Define this variable to make buftabs only print the filename of each buffer,
-""   omitting the preceding directory name.
-"let g:buftabs_only_basename=1
-
-""   These strings are drawn around each tab as separators, the 'marker_modified'
-""   symbol is used to denote a modified (unsaved) buffer.
-"let g:buftabs_separator = "."
-"let g:buftabs_marker_start = "["
-"let g:buftabs_marker_end = "]"
-"let g:buftabs_marker_modified = "*"
+" 设置此选项后MiniBufExplorer无法高亮了
+"let g:miniBufExplForceSyntaxEnable = 1
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -93,7 +67,7 @@ nmap <leader>nt :NERDTreeToggle<cr>
 nmap <leader>nb :NERDTreeFromBookmark
 nmap <leader>nf :NERDTreeFind<cr>
 " Open a NERDTree automatically when vim starts up if no files were specified
-autocmd vimenter * if !argc() | NERDTree | endif
+"autocmd vimenter * if !argc() | NERDTree | endif
 " Open a NERDTree automatically when vim starts up
 "autocmd vimenter * NERDTree
 " Close vim if the only window left open is a NERDTree
@@ -142,7 +116,7 @@ autocmd BufEnter,WinEnter,BufNewFile,BufRead *.a51 setlocal filetype=a51
 "设置TxtBrowser 插件
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd BufEnter,WinEnter,BufNewFile,BufRead *.txt setlocal ft=txt
-
+au BufRead,BufNewFile *.log setlocal ft=txt
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "设置ColorV插件
@@ -167,7 +141,7 @@ nnoremap <silent> <C-F3> :Grep<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vimrc_author='幽谷奇峰( https://twitter.com/yysfirecn )'
 let g:vimrc_email='yysfire[at]gmail.com'
-let g:vimrc_homepage='http://'
+let g:vimrc_homepage='http://yysfire.github.com'
 nmap <F4> :AuthorInfoDetect<cr>
 
 
@@ -231,7 +205,7 @@ let g:vimwiki_CJK_length = 1
 let g:vimwiki_valid_html_tags=''
 
 " 'path_html'路径下的这些文件不会被命令:VimwikiAll2HTML自动删除
-let g:vimwiki_user_htmls = '404.html,search.html'
+let g:vimwiki_user_htmls = '404.html,search.html,google8befba0c77dd0855.html'
 
 " 从2级标题开始自动给标题编号
 "let g:vimwiki_html_header_numbering=2

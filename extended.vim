@@ -6,7 +6,7 @@
 "         Email: yysfire[at]gmail.com
 "      HomePage: http://
 "       Version: 6.0
-"  Last Changed: 2012-12-05 00:42:28
+"  Last Changed: 2012-12-10 10:29:05
 "       History:
 "=============================================================================
 " 快捷键的前导键设为逗号，默认值是反斜杠 '\'
@@ -114,8 +114,8 @@ noremap <leader>bn :bnext!<CR>
 noremap <leader>bp :bprev!<CR>
 
 " 卸载当前缓冲区
-map <leader>bd :Bclose<cr>
-" 卸载所有缓冲区,但不退出Vim（已知问题：导致NERDTree窗口无法打开）
+map <leader>bd :call vimrcfunc#extend#BufcloseCloseIt()<cr>
+" 卸载所有缓冲区,但不退出Vim
 "map <leader>ba :1,1000 bd!<cr>
 map <leader>ba :1,1000 bd<cr>
 
@@ -155,19 +155,8 @@ if has("mac") || has("macunix")
 endif
 
 " 写入缓冲区时移除行尾的多余空格，diff文件除外
-" From: Vigil
-" @see http://blog.bs2.to/post/EdwardLee/17961
-function! RemoveTrailingWhitespace()
-    if &ft != "diff"
-        let b:curcol = col(".")
-        let b:curline = line(".")
-        silent! %s/\s\+$//
-        silent! %s/\(\s*\n\)\+\%$//
-        call cursor(b:curline, b:curcol)
-    endif
-endfunction
-autocmd BufWrite *.py :call RemoveTrailingWhitespace()
-nmap <leader>rmw :call RemoveTrailingWhitespace()<cr>
+autocmd BufWrite *.py :call vimrcfunc#extend#RemoveTrailingWhitespace()
+nmap <leader>rmw :call vimrcfunc#extend#RemoveTrailingWhitespace()<cr>
 
 " 移除文档中的 ^M 符号
 noremap <Leader>rmm mmHmt:%s/<C-V><cr>//ge<cr>'tzt'm
@@ -183,24 +172,24 @@ map <leader>pp :setlocal paste!<cr>
 " => 可视模式下的搜索
 """"""""""""""""""""""""""""""
 " 选中一段文字,按 * 和 # 来全文搜索这段文字
-vnoremap <silent> * :call VisualSelection('f')<CR>
-vnoremap <silent> # :call VisualSelection('b')<CR>
+vnoremap <silent> * :call vimrcfunc#extend#VisualSelection('f')<CR>
+vnoremap <silent> # :call vimrcfunc#extend#VisualSelection('b')<CR>
 " 第二种实现方式
 "vnoremap  *  y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 "vnoremap  #  y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
 " When you press gv you vimgrep after the selected text
 " 按 gv 来 vimgrep 选中的文本
-vnoremap <silent> gv :call VisualSelection('gv')<CR>
+vnoremap <silent> gv :call vimrcfunc#extend#VisualSelection('gv')<CR>
 
 " Open vimgrep and put the cursor in the right position
-map <leader>vg :vimgrep // **/*.<left><left><left><left><left><left><left>
+map <leader>gv :vimgrep // **/*.*<left><left><left><left><left><left><left><left>
 
 " Vimgreps in the current file
 map <leader><space> :vimgrep // <C-R>%<C-A><right><right><right><right><right><right><right><right><right>
 
 " When you press <leader>rs you can search and replace the selected text
-vnoremap <silent> <leader>rs :call VisualSelection('replace')<CR>
+vnoremap <silent> <leader>rs :call vimrcfunc#extend#VisualSelection('replace')<CR>
 
 " Do :help cope if you are unsure what cope is. It's super useful!
 "
@@ -234,7 +223,7 @@ cno $c e <C-\>eCurrentFileDir("e")<cr>
 
 " $q is super useful when browsing on the command line
 " it deletes everything until the last slash 
-cno $q <C-\>eDeleteTillSlash()<cr>
+cno $q <C-\>evimrcfunc#extend#DeleteTillSlash()<cr>
 
 " Bash like keys for the command line
 cnoremap <C-A>		<Home>
@@ -267,7 +256,7 @@ inoremap $t <><esc>i
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 缩写
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-iab time <c-r>=strftime("%Y-%m-%d %H:%M:%S")<cr>
+"iab time <c-r>=strftime("%Y-%m-%d %H:%M:%S")<cr>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -330,74 +319,7 @@ function! CustomExit()
 	endif
 endfunction
 
-func! DeleteTillSlash()
-    let g:cmd = getcmdline()
-
-    if g:ostype=='windows'
-        let g:cmd_edited = substitute(g:cmd, "\\(.*\[\\\\]\\).*", "\\1", "")
-    else
-        let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*", "\\1", "")
-    endif
-
-    if g:cmd == g:cmd_edited
-        if g:ostype=='windows'
-            let g:cmd_edited = substitute(g:cmd, "\\(.*\[\\\\\]\\).*\[\\\\\]", "\\1", "")
-        else
-            let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*/", "\\1", "")
-        endif
-    endif   
-
-    return g:cmd_edited
-endfunc
-
 func! CurrentFileDir(cmd)
     return a:cmd . " " . expand("%:p:h") . "/"
 endfunc
 
-" Don't close window, when deleting a buffer
-command! Bclose call <SID>BufcloseCloseIt()
-function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr("%")
-   let l:alternateBufNum = bufnr("#")
-
-   if buflisted(l:alternateBufNum)
-     buffer #
-   else
-     bnext
-   endif
-
-   if bufnr("%") == l:currentBufNum
-     new
-   endif
-
-   if buflisted(l:currentBufNum)
-     execute("bdelete! ".l:currentBufNum)
-   endif
-endfunction
-
-function! CmdLine(str)
-    exe "menu Foo.Bar :" . a:str
-    emenu Foo.Bar
-    unmenu Foo
-endfunction 
-
-function! VisualSelection(direction) range
-    let l:saved_reg = @"
-    execute "normal! vgvy"
-
-    let l:pattern = escape(@", '\\/.*$^~[]')
-    let l:pattern = substitute(l:pattern, "\n$", "", "")
-
-    if a:direction == 'b'
-        execute "normal ?" . l:pattern . "^M"
-    elseif a:direction == 'gv'
-        call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
-    elseif a:direction == 'replace'
-        call CmdLine("%s" . '/'. l:pattern . '/')
-    elseif a:direction == 'f'
-        execute "normal /" . l:pattern . "^M"
-    endif
-
-    let @/ = l:pattern
-    let @" = l:saved_reg
-endfunction
