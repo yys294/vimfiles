@@ -5,7 +5,7 @@
 "         Email: yysfire[at]gmail.com
 "      HomePage: http://
 "       Version: 6.0
-"  Last Changed: 2012-12-10 11:08:38
+"  Last Changed: 2012-12-10 12:37:16
 "       History:
 "=============================================================================
 
@@ -239,3 +239,10 @@ let g:xptemplate_key = '<TAB>'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:template_path = '$VIMFILES/template/'
 nmap <leader>lt :LoadTemplate<CR>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => SingleCompile plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <F9> :SCCompile<cr>
+nmap <F10> :SCCompileRun<cr>
